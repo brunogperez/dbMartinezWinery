@@ -151,10 +151,11 @@ FROM orders o
 WHERE o.status = 'pending';
 
 
-        
+
 -- Declaración de funciones para la DB
 
 -- Función para obtener el precio total de un pedido
+DROP FUNCTION IF EXISTS GetTotalPrice;
 DELIMITER //
 CREATE FUNCTION GetTotalPrice(order_id INT)
 RETURNS DECIMAL(10, 2)
@@ -169,3 +170,21 @@ BEGIN
     RETURN total_price;
 END;
 //
+
+
+-- Declaración de Store Procedures
+
+
+-- StoreProcedure para obtener las ordenes de un cliente específico
+CREATE PROCEDURE GetClientOrders(IN clientID INT)
+BEGIN
+    SELECT 
+		o.order_id,
+		c.name
+    FROM orders o
+    JOIN clients c ON o.client_id = c.client_id
+    WHERE o.client_id = clientID;
+END;
+
+CALL GetClientOrders('ID DEL CLIENTE');
+
