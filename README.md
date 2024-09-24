@@ -2,7 +2,7 @@
 
 ## Introducción
 
-Martinez Winery es una distribuidora de vinos que ofrece una cuidadosa selección de productos de alta calidad. El objetivo de este proyecto es desarrollar una base de datos eficiente que permita gestionar de manera óptima el inventario, las ventas, los pedidos a proveedores y el seguimiento de clientes. Esta herramienta está diseñada para mejorar el flujo de información y facilitar la toma de decisiones, con la flexibilidad necesaria para escalar a medida que la empresa crezca y añada nuevas sucursales.
+Martinez Winery es una distribuidora especializada en ofrecer una selección exclusiva de vinos de alta calidad, cuidadosamente seleccionados de distintas regiones y variedades. Nuestro enfoque se centra en brindar un servicio personalizado, atendiendo a los gustos y preferencias de cada cliente. A través de alianzas con proveedores confiables y un control riguroso del inventario, aseguramos la frescura y disponibilidad de nuestros productos. Además, nuestro objetivo es ofrecer una experiencia de compra fluida y satisfactoria, tanto en nuestra sucursal física como en futuras expansiones.
 
 ## Objetivo 
 
