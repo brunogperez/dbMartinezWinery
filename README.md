@@ -16,19 +16,23 @@ https://miro.com/app/board/uXjVKsYFPKQ=/
 
 ACA VAN LAS TABLAS CON SUS DESCRIPCIONES
 
-![Image20240813194716](https://github.com/user-attachments/assets/bc8ebdd4-7d59-40ce-9d82-1ea41b0b47c8)
+
 
 ## VISTAS
 
+5 VISTAS
 
 ## FUNCIONES
 
+2 FUNCIONES 
 
 ## STORED PROCEDURES
 
+2 SP
 
 ## TRIGGERS
 
+2 TRIGGERS 
 
 ## Construido con 🛠️
 
@@ -43,6 +47,8 @@ Mi proyecto fue construido utilizando las siguientes herramientas:
 * Descargar los archivos .sql
 * Ejecutar el archivo martinezWinery.sql que contiene todos scripts para la creación del schema y las tablas de la DB.
 * Ejecutar el archivo martinezWinery_insertData.sql que contiene todas las sentencias INSERT para cada tabla.
+
+  ## FUTURAS MEJORAS
 
 ## Autor ✒️
 **Bruno Perez** 
