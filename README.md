@@ -1,10 +1,23 @@
 # ProyectoFinal SQL  - Perez Bruno 
 
+## Introducción
+
+Martinez Winery es una distribuidora de vinos que ofrece una cuidadosa selección de productos de alta calidad. El objetivo de este proyecto es desarrollar una base de datos eficiente que permita gestionar de manera óptima el inventario, las ventas, los pedidos a proveedores y el seguimiento de clientes. Esta herramienta está diseñada para mejorar el flujo de información y facilitar la toma de decisiones, con la flexibilidad necesaria para escalar a medida que la empresa crezca y añada nuevas sucursales.
+
+## Objetivo 
+
 El propósito de este proyecto es demostrar la aplicación de SQL para la gestión y análisis de datos de una distribuidora de vinos. A lo largo de este proyecto, se explorarán las diversas funcionalidades y características de SQL, incluyendo la creación y manipulación de bases de datos, la ejecución de consultas complejas, la integración de datos desde múltiples fuentes, y la implementación de buenas prácticas de diseño de bases de datos.
 
 ## Diagrama entidad - relación
 
 https://miro.com/app/board/uXjVKsYFPKQ=/
+
+## EStructura de la DB
+
+ACA VAN LAS TABLAS CON SUS DESCRIPCIONES
+
+![Image20240813194716](https://github.com/user-attachments/assets/bc8ebdd4-7d59-40ce-9d82-1ea41b0b47c8)
+
 
 ## Construido con 🛠️
 
