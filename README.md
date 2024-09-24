@@ -18,6 +18,17 @@ ACA VAN LAS TABLAS CON SUS DESCRIPCIONES
 
 ![Image20240813194716](https://github.com/user-attachments/assets/bc8ebdd4-7d59-40ce-9d82-1ea41b0b47c8)
 
+## VISTAS
+
+
+## FUNCIONES
+
+
+## STORED PROCEDURES
+
+
+## TRIGGERS
+
 
 ## Construido con 🛠️
 
