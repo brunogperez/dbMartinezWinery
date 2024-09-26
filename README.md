@@ -14,8 +14,19 @@ https://miro.com/app/board/uXjVKsYFPKQ=/
 
 ## EStructura de la DB
 
-ACA VAN LAS TABLAS CON SUS DESCRIPCIONES
+La DB está diseñada para gestionar eficientemente las operaciones clave de la distribuidora. Incluye entidades que organizan y controlan la información relacionada con clientes, proveedores, empleados, categorías de productos, zonas de distribución, roles, pedidos, detalles de los pedidos y estados de preparación de los pedidos permitiendo un flujo de datos preciso y fácil de administrar. Esta estructura flexible garantiza la escalabilidad para futuras expansiones del negocio.
+A continuación se encuentran las tablas con sus columnas explicadas.
 
+
+![tablaProducts](https://github.com/user-attachments/assets/c03558c3-b2e3-4c71-ab65-34029d0f5193)
+![tablaProviders](https://github.com/user-attachments/assets/01004e11-2602-4670-9d17-440a3cfca3b9)
+![tablaClients](https://github.com/user-attachments/assets/224e2082-ae71-4e61-a8c3-3ab21d9e16a8)
+![tablaOrders](https://github.com/user-attachments/assets/55e179dc-9165-4431-8591-cae567ae0105)
+![tablaCategories](https://github.com/user-attachments/assets/8f372c4d-5fae-4a4a-9035-31a14732424b)
+![tablaLocations](https://github.com/user-attachments/assets/5008d0b8-7ea9-480c-a909-1ce812ac2b69)
+![tablaRoles](https://github.com/user-attachments/assets/50921896-2f69-49fb-9a7b-ea51c6480740)
+![tablaStatus](https://github.com/user-attachments/assets/44d5aa12-e7e0-4985-b9d8-898a51bfef63)
+![tablaYears](https://github.com/user-attachments/assets/500f495e-4292-41aa-9309-1b34c34e7df7)
 
 
 ## VISTAS
