@@ -1,4 +1,4 @@
-# ProyectoFinal SQL  - Perez Bruno 
+# Proyecto Final SQL  - Perez Bruno 
 
 ## Introducción
 
@@ -12,7 +12,7 @@ El propósito de este proyecto es demostrar la aplicación de SQL para la gesti�
 
 https://miro.com/app/board/uXjVKsYFPKQ=/
 
-## EStructura de la DB
+## Estructura de la DB
 
 La DB está diseñada para gestionar eficientemente las operaciones clave de la distribuidora. Incluye entidades que organizan y controlan la información relacionada con clientes, proveedores, empleados, categorías de productos, zonas de distribución, roles, pedidos, detalles de los pedidos y estados de preparación de los pedidos permitiendo un flujo de datos preciso y fácil de administrar. Esta estructura flexible garantiza la escalabilidad para futuras expansiones del negocio.
 A continuación se encuentran las tablas con sus columnas explicadas.
