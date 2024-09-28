@@ -18,7 +18,7 @@ insert into categories (category_id, name, grape_variety, description) values (1
 
 
 -- Script para inserción de datos en tabla Roles
-​
+
 insert into roles (role_id, name) values (1, 'Construction Foreman');
 insert into roles (role_id, name) values (2, 'Project Manager');
 insert into roles (role_id, name) values (3, 'Construction Worker');
@@ -30,16 +30,16 @@ insert into roles (role_id, name) values (7, 'Construction Worker');
 
 -- Script para inserción de datos en tabla de Years 
 
-insert into years (year_id, name) values (1, 1995);
-insert into years (year_id, name) values (2, 2010);
-insert into years (year_id, name) values (3, 1997);
-insert into years (year_id, name) values (4, 2010);
-insert into years (year_id, name) values (5, 1987);
-insert into years (year_id, name) values (6, 1996);
-insert into years (year_id, name) values (7, 2007);
-insert into years (year_id, name) values (8, 1996);
-insert into years (year_id, name) values (9, 2004);
-insert into years (year_id, name) values (10, 1992);
+insert into years (year_id, year) values (1, 1995);
+insert into years (year_id, year) values (2, 2010);
+insert into years (year_id, year) values (3, 1997);
+insert into years (year_id, year) values (4, 2010);
+insert into years (year_id, year) values (5, 1987);
+insert into years (year_id, year) values (6, 1996);
+insert into years (year_id, year) values (7, 2007);
+insert into years (year_id, year) values (8, 1996);
+insert into years (year_id, year) values (9, 2004);
+insert into years (year_id, year) values (10, 1992);
 
 
 -- Script para inserción de datos en tabla de Locations 
@@ -111,36 +111,36 @@ insert into products (product_id, name, description, stock, price, bottle_size, 
 
 -- Script para inserción de datos en tabla de Clients
 
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (1, 'Reiko Mansford', 'rmansford0@topsy.com', '66678 Tomscot Terrace', '182-51-0490', '385-140-8809', 10);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (2, 'Berri Stevens', 'bstevens1@feedburner.com', '73 Holmberg Alley', '276-82-7629', '730-253-9729', 5);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (3, 'Kary Leap', 'kleap2@sitemeter.com', '1125 Pine View Road', '375-73-0693', '550-773-9103', 8);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (4, 'Blanca Rudman', 'brudman3@wsj.com', '7 Troy Center', '290-59-8638', '481-620-3039', 6);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (5, 'Royal Duck', 'rduck4@multiply.com', '5784 Hoffman Avenue', '668-58-1750', '291-247-4688', 6);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (6, 'Nadine Arrell', 'narrell5@walmart.com', '548 Gerald Hill', '533-33-4940', '315-663-8290', 6);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (7, 'Sal Garfath', 'sgarfath6@virginia.edu', '31972 Stephen Pass', '691-10-8374', '242-178-0634', 7);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (8, 'Mickie Martschke', 'mmartschke7@123-reg.co.uk', '29 Aberg Avenue', '106-30-9499', '318-888-8548', 1);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (9, 'Kayne Stranahan', 'kstranahan8@purevolume.com', '90 Transport Drive', '161-81-3339', '934-992-9593', 10);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (10, 'Harriett Rushby', 'hrushby9@mysql.com', '116 Westerfield Drive', '223-34-5428', '331-445-0415', 8);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (11, 'Constantina Riddle', 'criddlea@blogspot.com', '9 Bayside Park', '467-05-1855', '535-516-3231', 7);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (12, 'Shermy Teresia', 'steresiab@indiegogo.com', '4 Elmside Alley', '315-20-3947', '175-528-8795', 1);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (13, 'Filip Neumann', 'fneumannc@rambler.ru', '33305 Reindahl Pass', '792-35-9381', '712-120-6213', 2);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (14, 'Minta Hoyland', 'mhoylandd@dailymail.co.uk', '481 Arapahoe Road', '814-33-1210', '244-773-8787', 2);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (15, 'Dennie De Beneditti', 'ddee@flavors.me', '77838 Nova Terrace', '553-18-1000', '676-614-7220', 10);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (16, 'Prudy Trotton', 'ptrottonf@spotify.com', '5 Farwell Junction', '524-67-9834', '158-564-8537', 9);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (17, 'Atalanta Barrowcliff', 'abarrowcliffg@digg.com', '26215 Kings Circle', '263-01-6076', '101-124-2172', 9);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (18, 'Torrance Chansonne', 'tchansonneh@1und1.de', '4 Ridgeway Road', '812-92-8728', '911-219-7600', 2);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (19, 'Corbet Caldow', 'ccaldowi@examiner.com', '10510 Farmco Park', '236-36-9316', '293-265-6046', 10);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (20, 'Fleur Shoesmith', 'fshoesmithj@goodreads.com', '339 Shelley Trail', '831-83-5406', '336-408-3024', 6);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (21, 'Adelaida Beagin', 'abeagink@ehow.com', '4691 Kinsman Road', '793-31-4715', '169-523-5610', 2);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (22, 'Xenos Ovitz', 'xovitzl@51.la', '713 Meadow Ridge Plaza', '607-56-5152', '373-989-0045', 5);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (23, 'Deni Kremer', 'dkremerm@newsvine.com', '0376 Maryland Point', '749-71-2468', '368-225-4763', 6);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (24, 'Emylee MacCurlye', 'emaccurlyen@sciencedaily.com', '944 Miller Hill', '140-58-1751', '714-564-5631', 6);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (25, 'Normy Hammonds', 'nhammondso@walmart.com', '36300 Hollow Ridge Junction', '790-19-1536', '829-582-4742', 9);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (26, 'Welsh Swatton', 'wswattonp@columbia.edu', '9255 Mariners Cove Park', '543-67-4157', '481-914-1805', 8);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (27, 'Virgina Dibb', 'vdibbq@chronoengine.com', '59 Hallows Terrace', '570-32-5034', '273-818-3049', 6);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (28, 'Katharine Springett', 'kspringettr@china.com.cn', '23 Annamark Hill', '624-61-9487', '944-333-5680', 9);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (29, 'Amble Elvins', 'aelvinss@yale.edu', '752 Luster Street', '859-49-3348', '258-982-3445', 2);
-insert into clients (client_id, name, email, address, DNI, phone_number, location_id) values (30, 'Krista Brunesco', 'kbrunescot@si.edu', '972 Walton Hill', '405-89-4335', '512-183-7161', 1);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (1, 'Reiko Mansford', 'rmansford0@topsy.com', '66678 Tomscot Terrace', '182-51-0490', '385-140-8809', 10);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (2, 'Berri Stevens', 'bstevens1@feedburner.com', '73 Holmberg Alley', '276-82-7629', '730-253-9729', 5);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (3, 'Kary Leap', 'kleap2@sitemeter.com', '1125 Pine View Road', '375-73-0693', '550-773-9103', 8);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (4, 'Blanca Rudman', 'brudman3@wsj.com', '7 Troy Center', '290-59-8638', '481-620-3039', 6);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (5, 'Royal Duck', 'rduck4@multiply.com', '5784 Hoffman Avenue', '668-58-1750', '291-247-4688', 6);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (6, 'Nadine Arrell', 'narrell5@walmart.com', '548 Gerald Hill', '533-33-4940', '315-663-8290', 6);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (7, 'Sal Garfath', 'sgarfath6@virginia.edu', '31972 Stephen Pass', '691-10-8374', '242-178-0634', 7);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (8, 'Mickie Martschke', 'mmartschke7@123-reg.co.uk', '29 Aberg Avenue', '106-30-9499', '318-888-8548', 1);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (9, 'Kayne Stranahan', 'kstranahan8@purevolume.com', '90 Transport Drive', '161-81-3339', '934-992-9593', 10);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (10, 'Harriett Rushby', 'hrushby9@mysql.com', '116 Westerfield Drive', '223-34-5428', '331-445-0415', 8);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (11, 'Constantina Riddle', 'criddlea@blogspot.com', '9 Bayside Park', '467-05-1855', '535-516-3231', 7);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (12, 'Shermy Teresia', 'steresiab@indiegogo.com', '4 Elmside Alley', '315-20-3947', '175-528-8795', 1);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (13, 'Filip Neumann', 'fneumannc@rambler.ru', '33305 Reindahl Pass', '792-35-9381', '712-120-6213', 2);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (14, 'Minta Hoyland', 'mhoylandd@dailymail.co.uk', '481 Arapahoe Road', '814-33-1210', '244-773-8787', 2);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (15, 'Dennie De Beneditti', 'ddee@flavors.me', '77838 Nova Terrace', '553-18-1000', '676-614-7220', 10);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (16, 'Prudy Trotton', 'ptrottonf@spotify.com', '5 Farwell Junction', '524-67-9834', '158-564-8537', 9);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (17, 'Atalanta Barrowcliff', 'abarrowcliffg@digg.com', '26215 Kings Circle', '263-01-6076', '101-124-2172', 9);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (18, 'Torrance Chansonne', 'tchansonneh@1und1.de', '4 Ridgeway Road', '812-92-8728', '911-219-7600', 2);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (19, 'Corbet Caldow', 'ccaldowi@examiner.com', '10510 Farmco Park', '236-36-9316', '293-265-6046', 10);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (20, 'Fleur Shoesmith', 'fshoesmithj@goodreads.com', '339 Shelley Trail', '831-83-5406', '336-408-3024', 6);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (21, 'Adelaida Beagin', 'abeagink@ehow.com', '4691 Kinsman Road', '793-31-4715', '169-523-5610', 2);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (22, 'Xenos Ovitz', 'xovitzl@51.la', '713 Meadow Ridge Plaza', '607-56-5152', '373-989-0045', 5);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (23, 'Deni Kremer', 'dkremerm@newsvine.com', '0376 Maryland Point', '749-71-2468', '368-225-4763', 6);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (24, 'Emylee MacCurlye', 'emaccurlyen@sciencedaily.com', '944 Miller Hill', '140-58-1751', '714-564-5631', 6);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (25, 'Normy Hammonds', 'nhammondso@walmart.com', '36300 Hollow Ridge Junction', '790-19-1536', '829-582-4742', 9);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (26, 'Welsh Swatton', 'wswattonp@columbia.edu', '9255 Mariners Cove Park', '543-67-4157', '481-914-1805', 8);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (27, 'Virgina Dibb', 'vdibbq@chronoengine.com', '59 Hallows Terrace', '570-32-5034', '273-818-3049', 6);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (28, 'Katharine Springett', 'kspringettr@china.com.cn', '23 Annamark Hill', '624-61-9487', '944-333-5680', 9);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (29, 'Amble Elvins', 'aelvinss@yale.edu', '752 Luster Street', '859-49-3348', '258-982-3445', 2);
+insert into clients (client_id, name, email, address, dni, phone_number, location_id) values (30, 'Krista Brunesco', 'kbrunescot@si.edu', '972 Walton Hill', '405-89-4335', '512-183-7161', 1);
 
 
 -- Script para inserción de datos en tabla de Employees
