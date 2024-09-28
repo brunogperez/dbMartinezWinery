@@ -34,6 +34,7 @@ A continuación se encuentran las tablas principales con sus columnas explicadas
 
 * Vista para observar la cantidad total de pedidos de los clientes 
 ![clientOrderCount](https://github.com/user-attachments/assets/4b877fd4-e224-4b90-8e35-28e2a463558d)
+
 Muestra la cantidad total de pedidos realizados por cada cliente. Utiliza una unión LEFT JOIN entre las tablas de clientes y pedidos, de modo que se incluyan todos los clientes, incluso aquellos que no hayan hecho ningún pedido. Luego, agrupa los resultados por cliente y los ordena de forma descendente según el número total de pedidos (total_orders).
 
 El fin de esta vista es controlar la actividad de los clientes para para próximas lanzamientos de ofertas especiales
