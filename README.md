@@ -10,6 +10,8 @@
 
 ## Diagrama entidad - relación
 
+![DiagramaER](https://github.com/user-attachments/assets/902e95ff-0b15-434b-9520-4063422432e5)
+
 https://miro.com/app/board/uXjVKsYFPKQ=/
 
 ## Estructura de la DB
