@@ -32,7 +32,8 @@ A continuación se encuentran las tablas principales con sus columnas explicadas
 ## VISTAS PARA INFORMES
 
 
-* Vista para observar la cantidad total de pedidos de los clientes 
+* Vista para observar la cantidad total de pedidos de los clientes
+  
 ![clientOrderCount](https://github.com/user-attachments/assets/4b877fd4-e224-4b90-8e35-28e2a463558d)
 
 Muestra la cantidad total de pedidos realizados por cada cliente. Utiliza una unión LEFT JOIN entre las tablas de clientes y pedidos, de modo que se incluyan todos los clientes, incluso aquellos que no hayan hecho ningún pedido. Luego, agrupa los resultados por cliente y los ordena de forma descendente según el número total de pedidos (total_orders).
@@ -40,6 +41,7 @@ Muestra la cantidad total de pedidos realizados por cada cliente. Utiliza una un
 El fin de esta vista es controlar la actividad de los clientes para para próximas lanzamientos de ofertas especiales
 
 * Vista para observar los productos con poco stock
+  
 ![productsWithLowStock](https://github.com/user-attachments/assets/9ec891bc-1ac4-4e3e-bdd7-9f9276fbc274)
 
 Muestra todos los productos cuyo stock es igual o inferior a 10. Selecciona los campos de product_id, name y stock de la tabla products y filtra aquellos productos con bajo inventario.
@@ -47,6 +49,7 @@ Muestra todos los productos cuyo stock es igual o inferior a 10. Selecciona los 
 El fin de la misma es generar un informe de productos con bajo stock, permitiendo al equipo de compras o logística identificar rápidamente los artículos que necesitan ser reabastecidos para evitar rupturas de stock.
 
 * Vista de pedidos incompletos
+  
 ![incompleteOrders](https://github.com/user-attachments/assets/e9fc9363-13aa-4670-82a7-88ebde5cd0f7)
 
 Muestra todos los pedidos que están marcados como incompletos, filtrando aquellos con un status_id igual a 1. Selecciona los campos order_id, client_id y order_date de la tabla de pedidos.
@@ -54,6 +57,7 @@ Muestra todos los pedidos que están marcados como incompletos, filtrando aquell
 Esta view se utiliza para generar un informe de pedidos incompletos, permitiendo al equipo de atención al cliente o gestión de pedidos identificar rápidamente los pedidos que necesitan atención para ser completados lo antes posible. 
 
 * Vista de ventas por zona
+  
 ![salesByLocation](https://github.com/user-attachments/assets/7f28a261-2032-46b1-8429-6631c93f8bde)
 
 Muestra las ventas totales agrupadas por zona de venta. Selecciona el nombre de la ubicación y la suma de los montos de los pedidos (total_sales). Utiliza uniones entre las tablas de clientes, ubicaciones y pedidos, y organiza los resultados de manera descendente según el total de ventas por cada zona.
