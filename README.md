@@ -18,15 +18,17 @@ La DB está diseñada para gestionar eficientemente las operaciones clave de la 
 A continuación se encuentran las tablas principales con sus columnas explicadas.
 
 
-![tablaProducts](https://github.com/user-attachments/assets/c03558c3-b2e3-4c71-ab65-34029d0f5193)
-![tablaProviders](https://github.com/user-attachments/assets/01004e11-2602-4670-9d17-440a3cfca3b9)
-![tablaClients](https://github.com/user-attachments/assets/224e2082-ae71-4e61-a8c3-3ab21d9e16a8)
-![tablaOrders](https://github.com/user-attachments/assets/55e179dc-9165-4431-8591-cae567ae0105)
-![tablaCategories](https://github.com/user-attachments/assets/8f372c4d-5fae-4a4a-9035-31a14732424b)
-![tablaLocations](https://github.com/user-attachments/assets/5008d0b8-7ea9-480c-a909-1ce812ac2b69)
-![tablaRoles](https://github.com/user-attachments/assets/50921896-2f69-49fb-9a7b-ea51c6480740)
-![tablaStatus](https://github.com/user-attachments/assets/44d5aa12-e7e0-4985-b9d8-898a51bfef63)
-![tablaYears](https://github.com/user-attachments/assets/500f495e-4292-41aa-9309-1b34c34e7df7)
+![tablaProducts](https://github.com/user-attachments/assets/846cea4e-c526-43b6-a1d6-4b6d4bfcece8)
+![tablaEmployees](https://github.com/user-attachments/assets/fa8c4349-61ac-4aef-9a09-7076bdc1aa03)
+![tablaClients](https://github.com/user-attachments/assets/5620812a-9190-47f5-bbcd-08412632c801)
+![tablaProviders](https://github.com/user-attachments/assets/505cb3ae-f804-4983-afc8-41e8ad133831)
+![tablaOrders](https://github.com/user-attachments/assets/61b5af5d-518c-4e36-8607-92f02cadfa61)
+![tablaOrdersDetail](https://github.com/user-attachments/assets/65022a5f-4a93-40ce-8322-9fd1ee1a2354)
+![tablaCategories](https://github.com/user-attachments/assets/0017ff37-0c2a-4a0d-8ddc-f00662dcd545)
+![tablaLocations](https://github.com/user-attachments/assets/c2fa4b02-b3a0-4781-9fc0-9b6d5169f7a2)
+![tablaRoles](https://github.com/user-attachments/assets/3be784ca-5fe4-4f88-b06b-93fd3e23fe9e)
+![tablaYears](https://github.com/user-attachments/assets/a6aaef82-741f-4db4-b946-b855ad524b73)
+![tablaStatus](https://github.com/user-attachments/assets/7af47f93-0159-45a0-9edd-bc4958cfb554)
 
 
 ## VISTAS PARA INFORMES
@@ -67,11 +69,43 @@ El fin de esta view es generar un informe de ventas por ubicación, lo que permi
 
 ## FUNCIONES
 
-2 FUNCIONES 
+1. GetTotalPrice
+
+![fnGetTotalPrice](https://github.com/user-attachments/assets/f7be8826-fa0d-4303-ba1c-24c384d17ea3)
+
+Esta función calcula el precio total de un pedido específico. Recibe el ID del pedido como parámetro y utiliza una consulta que multiplica el precio de cada producto por la cantidad pedida, sumando los resultados para obtener el precio total. Esta función es útil para generar informes de ventas y para la gestión financiera de la distribuidora.
+
+2. GetMostSoldProduct
+   
+![fnGetMostSoldProduct](https://github.com/user-attachments/assets/b1476b06-f62c-4044-84f6-11805c6d3696)
+
+Esta función identifica el producto que ha sido vendido en mayor cantidad. No requiere parámetros de entrada y realiza una consulta que agrupa los detalles de los pedidos por ID de producto, ordenando los resultados por la suma de las cantidades vendidas. Esta información es valiosa para la toma de decisiones de inventario y marketing, ya que permite a la empresa enfocarse en los productos más populares.
 
 ## STORED PROCEDURES
 
-2 SP
+1. GetClientOrders
+
+![SPGetClientOrders](https://github.com/user-attachments/assets/c9ee239a-318b-4e7d-ba9d-296e01988db7)
+
+Este stored procedure obtiene todas las órdenes realizadas por un cliente específico. Recibe como parámetro el ID del cliente y realiza una consulta que une las tablas de pedidos y clientes para devolver el ID de la orden y el nombre del cliente. Es útil para el seguimiento de las compras de un cliente y la gestión de relaciones con los mismos.
+
+2. GetSectorEmployees
+
+![SPGetSectorEmployees](https://github.com/user-attachments/assets/9d4525ae-e022-46d8-b056-123103b3e454)
+
+Este stored procedure devuelve la lista de empleados que pertenecen a un rol específico dentro de la empresa. Toma como entrada el ID del rol y ejecuta una consulta que une las tablas de empleados y roles, mostrando el nombre del empleado y su rol. Es útil para la administración de recursos humanos y para entender la distribución de roles dentro de la organización.
+
+3. UpdateRoleEmployee
+
+![SPUpdateRoleEmployee](https://github.com/user-attachments/assets/e4dc2829-1ac9-4550-a423-ff124d193278)
+
+Este stored procedure permite actualizar el rol de un empleado en la base de datos. Requiere como parámetros el ID del empleado y el nuevo ID del rol que se le asignará. La ejecución de esta función modifica el registro correspondiente en la tabla de empleados. Es fundamental para la gestión de personal y la estructura organizativa, permitiendo cambios de roles conforme a las necesidades de la empresa.
+
+4. GetProductsInOrder
+
+![SPGetProductsInOrder](https://github.com/user-attachments/assets/0aa2ebcb-da03-465d-b992-62afca73a09e)
+
+Este stored procedure obtiene una lista de productos ordenados según un campo específico, el cual se proporciona como parámetro. Si se especifica un campo, construye dinámicamente una consulta SQL para ordenar los resultados de la tabla de productos según ese campo. Esta flexibilidad es útil para generar reportes y análisis según diferentes criterios de interés, permitiendo al usuario personalizar la forma en que se visualizan los productos.
 
 ## TRIGGERS
 
@@ -93,7 +127,14 @@ Mi proyecto fue construido utilizando las siguientes herramientas:
 * Ejecutar el archivo martinezWinery_insertData.sql que contiene todas las sentencias INSERT para cada tabla.
 
   ## FUTURAS MEJORAS
-
+  
+* Si en el futuro se añaden más sucursales, se podría agregar una tabla Sucursales y vincular el inventario, ventas y pedidos a cada sucursal.
+* Creación de nuevas vistas para facilitar el acceso a la información.
+* Ampliar la estructura de la base de datos.
+* Fortalecer las medidas de seguridad de la base de datos.
+* Crear un sector de RRHH que le permita utilizar determinadas vistas, para selecionar y modificar el rendimiento de los empleados.
+* Crear procedimientos almacenados mas complejos para mejorar la base de datos.
+* Agregar nuevos Triggers para auditar mayor cantidad de datos. 
 
 
 ## Autor ✒️
