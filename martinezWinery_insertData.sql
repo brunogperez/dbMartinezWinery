@@ -56,6 +56,17 @@ insert into locations (location_id, name) values (9, 'Manding');
 insert into locations (location_id, name) values (10, 'Sarandi');
 
 
+-- Script para inserción de datos en tabla de Status
+
+insert into status (status_id, name) values (1, 'Pendiente');
+insert into status (status_id, name) values (2, 'Procesando');
+insert into status (status_id, name) values (3, 'Enviado');
+insert into status (status_id, name) values (4, 'Entregado');
+insert into status (status_id, name) values (5, 'Cancelado');
+insert into status (status_id, name) values (6, 'Devolución en proceso');
+insert into status (status_id, name) values (7, 'Devuelto');
+
+
 -- Script para inserción de datos en tabla de Providers
 
 insert into providers (provider_id, name, email, address, phone_number, location_id) values (1, 'Trantow-Daniel', 'adealy0@posterous.com', '6414 Anzinger Circle', '727-364-1803', 7);
@@ -160,3 +171,145 @@ insert into employees (employee_id, name, dni, phone_number, role_id) values (12
 insert into employees (employee_id, name, dni, phone_number, role_id) values (13, 'Nevile Raddenbury', '641-53-0585', '544-438-9168', 2);
 insert into employees (employee_id, name, dni, phone_number, role_id) values (14, 'Seana Jerzykiewicz', '363-04-1127', '337-407-5414', 1);
 insert into employees (employee_id, name, dni, phone_number, role_id) values (15, 'Corri Blincowe', '767-32-2392', '230-701-9045', 6);
+
+
+-- Script para inserción de pedidos ficticios en tabla de Orders
+
+insert into orders (order_id, order_date, client_id, amount, status_id) values (1, '2022-11-02', 20, 199017.94, 4);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (2, '2024-05-26', 20, 165763.59, 6);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (3, '2023-01-16', 25, 326475.18, 7);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (4, '2024-01-06', 21, 147858.14, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (5, '2022-02-15', 24, 408685.54, 6);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (6, '2022-05-30', 4, 518416.36, 2);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (7, '2022-05-02', 2, 406790.87, 7);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (8, '2022-01-11', 5, 221237.8, 7);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (9, '2023-12-16', 24, 339850.54, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (10, '2022-07-15', 24, 341581.17, 5);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (11, '2023-12-14', 5, 32469.74, 7);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (12, '2022-04-19', 10, 686063.99, 6);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (13, '2022-04-16', 1, 542504.95, 2);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (14, '2023-09-19', 30, 119580.42, 4);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (15, '2022-11-05', 5, 613857.36, 1);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (16, '2022-09-21', 12, 315584.59, 5);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (17, '2023-06-11', 21, 451701.36, 1);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (18, '2022-04-21', 4, 101495.14, 4);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (19, '2023-08-10', 19, 686235.23, 6);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (20, '2023-10-02', 23, 615637.06, 5);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (21, '2023-03-06', 7, 333467.38, 4);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (22, '2022-11-01', 14, 601763.23, 7);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (23, '2023-09-29', 20, 306821.87, 2);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (24, '2024-07-15', 11, 158876.88, 4);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (25, '2023-06-24', 8, 244535.97, 4);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (26, '2023-05-24', 11, 233023.18, 2);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (27, '2023-02-05', 23, 469587.85, 5);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (28, '2023-09-11', 6, 668877.83, 4);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (29, '2023-08-06', 29, 423997.04, 6);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (30, '2024-01-08', 19, 500660.6, 4);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (31, '2023-07-24', 14, 239001.57, 4);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (32, '2022-11-07', 2, 485824.95, 6);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (33, '2022-06-25', 5, 190608.76, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (34, '2022-04-23', 2, 665503.2, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (35, '2023-04-15', 27, 462830.82, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (36, '2022-04-08', 12, 569884.08, 5);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (37, '2022-01-17', 23, 518009.26, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (38, '2022-03-14', 26, 355326.53, 5);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (39, '2023-09-20', 2, 92732.78, 1);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (40, '2024-07-13', 13, 457544.65, 7);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (41, '2023-05-23', 20, 276926.88, 2);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (42, '2024-06-22', 8, 167885.19, 1);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (43, '2024-05-07', 23, 19091.58, 2);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (44, '2023-10-16', 23, 88707.92, 7);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (45, '2022-06-13', 6, 386140.92, 2);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (46, '2023-07-17', 20, 421472.34, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (47, '2023-07-07', 2, 328721.72, 1);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (48, '2022-09-21', 28, 174257.67, 1);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (49, '2023-03-20', 11, 420780.0, 2);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (50, '2023-06-23', 1, 387346.52, 5);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (51, '2023-04-11', 30, 676759.2, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (52, '2024-06-02', 5, 349604.11, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (53, '2024-02-01', 1, 143964.15, 7);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (54, '2024-04-10', 10, 55969.19, 5);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (55, '2022-07-12', 23, 331572.33, 4);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (56, '2023-06-07', 3, 328579.8, 2);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (57, '2024-08-31', 30, 258682.29, 6);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (58, '2024-05-07', 4, 545149.14, 6);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (59, '2023-06-07', 26, 237454.33, 2);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (60, '2023-02-18', 26, 282176.04, 6);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (61, '2024-09-10', 10, 153409.04, 5);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (62, '2022-06-29', 26, 110150.64, 4);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (63, '2024-02-25', 24, 591936.77, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (64, '2022-10-01', 13, 226938.07, 5);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (65, '2022-10-02', 20, 583344.84, 5);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (66, '2024-05-18', 6, 311571.53, 7);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (67, '2022-12-04', 4, 301625.43, 4);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (68, '2023-02-06', 13, 498686.34, 1);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (69, '2024-01-26', 14, 453903.1, 2);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (70, '2022-03-23', 9, 575932.66, 1);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (71, '2023-12-17', 7, 305957.15, 7);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (72, '2022-10-29', 28, 411112.77, 6);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (73, '2023-05-27', 29, 36938.72, 2);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (74, '2022-01-23', 27, 484550.98, 4);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (75, '2024-09-25', 5, 141068.44, 6);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (76, '2024-06-03', 16, 41768.15, 4);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (77, '2022-02-16', 30, 673725.17, 2);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (78, '2022-04-16', 2, 342729.1, 7);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (79, '2024-07-25', 14, 35469.2, 6);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (80, '2022-03-09', 28, 349951.19, 5);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (81, '2024-06-03', 21, 200203.38, 6);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (82, '2023-08-07', 30, 204525.93, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (83, '2023-07-25', 14, 690390.7, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (84, '2023-07-14', 6, 174446.0, 7);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (85, '2023-06-13', 6, 28744.69, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (86, '2024-03-16', 19, 190136.67, 1);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (87, '2023-05-15', 29, 437650.79, 1);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (88, '2023-03-28', 10, 303466.52, 5);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (89, '2022-02-24', 14, 206528.5, 2);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (90, '2022-04-03', 23, 664050.79, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (91, '2023-11-18', 24, 428854.91, 2);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (92, '2023-11-18', 11, 83405.71, 7);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (93, '2022-05-09', 5, 268797.35, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (94, '2023-02-07', 17, 456228.92, 4);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (95, '2024-01-25', 27, 324227.27, 3);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (96, '2023-05-23', 15, 38954.49, 5);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (97, '2022-05-21', 14, 166257.13, 6);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (98, '2023-08-31', 29, 387218.23, 1);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (99, '2024-07-16', 21, 543558.09, 7);
+insert into orders (order_id, order_date, client_id, amount, status_id) values (100, '2023-11-15', 4, 49817.57, 6);
+
+
+-- Script para inserción de pedidos ficticios en tabla de OrdersDetail
+
+insert into orders_detail (order_id, product_id, quantity, amount) values (1, 16, 2, 30.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (1, 14, 1, 15.5);
+insert into orders_detail (order_id, product_id, quantity, amount) values (1, 11, 3, 45.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (1, 15, 4, 60.0);
+
+insert into orders_detail (order_id, product_id, quantity, amount) values (2, 21, 2, 40.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (2, 16, 1, 20.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (2, 29, 3, 60.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (2, 17, 4, 80.0);
+
+insert into orders_detail (order_id, product_id, quantity, amount) values (3, 10, 2, 50.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (3, 30, 1, 25.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (3, 30, 3, 75.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (3, 27, 4, 100.0);
+
+insert into orders_detail (order_id, product_id, quantity, amount) values (4, 4, 2, 35.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (4, 11, 1, 17.5);
+insert into orders_detail (order_id, product_id, quantity, amount) values (4, 18, 3, 52.5);
+insert into orders_detail (order_id, product_id, quantity, amount) values (4, 25, 4, 70.0);
+
+insert into orders_detail (order_id, product_id, quantity, amount) values (5, 17, 2, 40.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (5, 13, 1, 20.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (5, 25, 3, 60.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (5, 27, 4, 80.0);
+
+insert into orders_detail (order_id, product_id, quantity, amount) values (6, 6, 2, 50.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (6, 4, 1, 25.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (6, 28, 3, 75.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (6, 2, 4, 100.0);
+
+insert into orders_detail (order_id, product_id, quantity, amount) values (7, 24, 2, 35.0);
+insert into orders_detail (order_id, product_id, quantity, amount) values (7, 23, 1, 17.5);
+insert into orders_detail (order_id, product_id, quantity, amount) values (7, 25, 3, 52.5);
+insert into orders_detail (order_id, product_id, quantity, amount) values (7, 21, 4, 70.0);

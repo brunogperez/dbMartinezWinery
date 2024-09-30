@@ -1,4 +1,4 @@
-CREATE SCHEMA `martinez_winery` ;
+CREATE SCHEMA `martinez_winery`;
 
 USE martinez_winery;
 
@@ -100,14 +100,14 @@ CREATE TABLE employees (
 DROP TABLE IF EXISTS orders;
 CREATE TABLE orders (
 	order_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	order_date DATETIME NOT NULL,
+	order_date DATE NOT NULL,
     client_id INT NOT NULL,
     amount DECIMAL(10,2) NOT NULL,
     status_id INT NOT NULL,
     FOREIGN KEY(client_id) REFERENCES clients(client_id),
     FOREIGN KEY(status_id) REFERENCES status(status_id)
     );
-    
+   
 -- Tabla de detalle de Pedido
 DROP TABLE IF EXISTS orders_detail;
 CREATE TABLE orders_detail (
@@ -124,18 +124,19 @@ CREATE TABLE orders_detail (
 
 -- Creación de vistas para uso en la DB
 
--- Vista para observar la cantidad de pedidos de un cliente en específico
+-- Vista para observar la cantidad total de pedidos de los clientes 
 CREATE OR REPLACE VIEW ClientOrderCount AS
 SELECT c.client_id,
        c.name,
        COUNT(o.order_id) AS total_orders
 FROM clients c
 LEFT JOIN orders o ON c.client_id = o.client_id
-GROUP BY c.client_id, c.name;
+GROUP BY c.client_id , c.name 
+ORDER BY total_orders DESC;
 
 
 -- Vista para observar los productos con poco stock
-CREATE VIEW ProductsWithLowStock AS
+CREATE OR REPLACE VIEW ProductsWithLowStock AS
 SELECT product_id,
        name,
        stock
@@ -144,35 +145,34 @@ WHERE stock <= 10;
 
 
 -- Vista de stock de productos por marca, categoría y año
-CREATE VIEW StockByBrandCategoryAndYear AS
-SELECT p.year,
+CREATE OR REPLACE VIEW StockByBrandAndYear AS
+SELECT p.year_id,
        b.name,
-       c.name,
        SUM(p.stock) AS total_stock
 FROM products p
 JOIN categories c ON p.category_id = c.category_id
-JOIN providers b ON p.providers_id = b.provider_id
-GROUP BY p.year, b.name, c.name
-ORDER BY p.year, b.name, c.name;
+JOIN providers b ON p.provider_id = b.provider_id
+GROUP BY p.year_id, b.name
+ORDER BY p.year_id DESC;
 
 
 -- Vista de pedidos incompletos
-CREATE VIEW IncompleteOrders AS
+CREATE OR REPLACE VIEW Incomplete_Orders AS
 SELECT o.order_id,
        o.client_id,
        o.order_date
 FROM orders o
-WHERE o.status = 'pending';
+WHERE o.status_id = 1;
 
 
 -- Vista de ventas por zona
-CREATE VIEW sales_by_location AS
+CREATE OR REPLACE VIEW sales_by_location AS
 SELECT 
     l.name, 
     SUM(o.amount) AS total_sales
 FROM clients c
-JOIN locations l ON c.location_id = l.id
-JOIN orders o ON c.id = o.client_id
+JOIN locations l ON c.location_id = l.location_id
+JOIN orders o ON c.client_id = o.client_id
 GROUP BY l.name
 ORDER BY total_sales DESC;
 
@@ -189,69 +189,115 @@ BEGIN
     DECLARE total_price DECIMAL(10, 2);
     
     SELECT SUM(p.price * o.quantity) INTO total_price
-    FROM orders o
+    FROM orders_detail o
     JOIN products p ON o.product_id = p.product_id
     WHERE o.order_id = order_id;
     
     RETURN total_price;
 END;
 //
+-- select martinez_winery.GetTotalPrice(2);
+
+-- Función para obtener el producto mas vendido
+DROP FUNCTION IF EXISTS GetMostSoldProduct;
+DELIMITER //
+CREATE FUNCTION GetMostSoldProduct()
+RETURNS INT
+DETERMINISTIC
+BEGIN
+    DECLARE most_sold_product_id INT;
+
+    SELECT od.product_id INTO most_sold_product_id
+    FROM orders_detail od
+    GROUP BY od.product_id
+    ORDER BY SUM(od.quantity) DESC
+    LIMIT 1;
+
+    RETURN most_sold_product_id;
+END;
+//
+-- select martinez_winery.GetMostSoldProduct();
 
 
 -- Declaración de Stored Procedures
 
 -- Stored Procedure para obtener las ordenes de un cliente específico
-CREATE PROCEDURE GetClientOrders(IN clientID INT)
+DELIMITER //
+
+CREATE PROCEDURE GetClientOrders(IN in_clientID INT)
 BEGIN
     SELECT 
 		o.order_id,
 		c.name
     FROM orders o
     JOIN clients c ON o.client_id = c.client_id
-    WHERE o.client_id = clientID;
-END;
+    WHERE o.client_id = in_clientID;
+END  //
 
-CALL GetClientOrders('ID DEL CLIENTE');
+DELIMITER ;
+
+-- CALL GetClientOrders("client_id");
+-- CALL GetClientOrders(4);
 
 -- Stored Procedure para obtener los empleados de un sector en especpifico
-	CREATE PROCEDURE GetSectorEmployees(IN role VARCHAR(30))
+DELIMITER //
+
+CREATE PROCEDURE GetSectorEmployees(IN in_role VARCHAR(30))
     BEGIN
 		SELECT
 			e.name,
-            r.role
+            r.role_id
 		FROM employees e
-        JOIN roles r ON e.role = r.role
-        WHERE r.role = role;
-    
-    END;
+        JOIN roles r ON e.role_id = r.role_id
+        WHERE r.role_id = in_role;
+END //
 
-CALL GetSectorEmployees('role de los empleados');
+DELIMITER ;
+    
+-- CALL GetSectorEmployees("role_id");
+-- CALL GetSectorEmployees(5);
+
 
 -- Stored Procedure para actualizar el rol de un empleado 
-	CREATE PROCEDURE UpdateRoleEmployee(IN EmployeeID INT, IN NewRoleID INT)
-    BEGIN
-		UPDATE employees SET role = NewRoleID
-        WHERE employee_id = EmployeeID
-    END;
+DELIMITER //
 
-CALL UpdateRoleEmployee('ID del eompleado', 'Nuevo rol');
+CREATE PROCEDURE UpdateRoleEmployee(IN EmployeeID INT, IN NewRoleID INT)
+    BEGIN
+		UPDATE employees SET role_id = NewRoleID
+        WHERE employee_id = EmployeeID;
+END // 
+    
+DELIMITER ;
+
+-- SELECT * FROM employees WHERE employee_id= 1;
+-- UpdateRoleEmployee('ID del eompleado', 'Nuevo rol');
+-- CALL UpdateRoleEmployee(1, 1);
+-- SELECT * FROM employees WHERE employee_id= 1;
+
+
 
 -- Stored Procedure obtener la lista de productos ordenados por un campo en especifico 
-	CREATE PROCEDURE GetProductsInOrder(IN field CHAR(30))
-    BEGIN
-		IF field <> '' THEN 
-			SET @products_order = CONCAT('ORDER BY', field);
-		ELSE
-			SET @products_order = '';
-		END IF;
-        
-        SET @clause = CONCAT('SELECT * FROM products ', @products_order);
-        PREPARE runQUERY FROM @clause;
-        EXECUTE runQUERY;
-        DEALLOCATE PREPARE runQUERY;
-    END;
+DELIMITER //
 
-CALL GetProductsInOrder('CAMPO');
+CREATE PROCEDURE GetProductsInOrder(IN field VARCHAR(30))
+BEGIN
+	IF field <> '' THEN 
+		SET @products_order = CONCAT('ORDER BY ', field);
+	ELSE
+		SET @products_order = '';
+	END IF;
+        
+	SET @clause = CONCAT('SELECT * FROM products ', @products_order);
+	PREPARE runQUERY FROM @clause;
+	EXECUTE runQUERY;
+	DEALLOCATE PREPARE runQUERY;
+END //
+
+DELIMITER ;
+
+
+-- CALL GetProductsInOrder('CAMPO');
+-- CALL GetProductsInOrder('year_id');
 
 
 
@@ -262,7 +308,7 @@ CALL GetProductsInOrder('CAMPO');
 
 -- Primero tenemos que definir la nueva estructura de la tabla de auditorias.
 CREATE TABLE employee_audit (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    audit_id INT PRIMARY KEY AUTO_INCREMENT,
     employee_id INT,
     accion VARCHAR(50),
     insert_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Fecha en que se inserta la acción
@@ -272,30 +318,34 @@ CREATE TABLE employee_audit (
 );
 
 -- Creamos el trigger 
+DELIMITER //
 CREATE TRIGGER after_update_employee
 AFTER UPDATE ON employees
 FOR EACH ROW
 BEGIN
     INSERT INTO employee_audit (
-        employee_id, accion, insert_date, created_by, last_update, last_updated_by
+        employee_id, accion, last_update, last_updated_by
     )
     VALUES (
-        NEW.id, 
+        NEW.employee_id, 
         'UPDATE', 
-        OLD.insert_date,  -- Mantiene la fecha original de inserción
-        OLD.created_by,   -- Mantiene el usuario que realizó la creación
         CURRENT_TIMESTAMP, -- Fecha y hora de la última actualización
         USER() -- Usuario que realizó la actualización
     );
-END;
+END // 
+DELIMITER ;
+
+-- REALIZAMOS UNA PRUEBA 
+-- SELECT * FROM  employees;
+-- SELECT * FROM employee_audit;
+-- UPDATE employees SET name = 'Bruno Perez' WHERE employee_id = 1;
 
 
 -- Trigger para auditar cuando se actualice un registro de la tabla de empleados
 
-
 -- Primero tenemos que definir la nueva estructura de la tabla de auditoría de productos.
-CREATE TABLE auditoria_productos (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE audit_products (
+    audit_id INT PRIMARY KEY AUTO_INCREMENT,
     product_id INT, -- ID del producto que fue actualizado
     accion VARCHAR(50), -- Acción realizada ('UPDATE')
     old_price DECIMAL(10, 2), -- Precio anterior
@@ -305,17 +355,19 @@ CREATE TABLE auditoria_productos (
 );
 
 -- Creamos el trigger 
+DELIMITER //
+DROP TRIGGER IF EXISTS after_update_products;
 CREATE TRIGGER after_update_products
 AFTER UPDATE ON products
 FOR EACH ROW
 BEGIN
     -- Solo registrar si el precio ha cambiado
     IF OLD.price != NEW.price THEN
-        INSERT INTO auditoria_productos (
+        INSERT INTO audit_products (
             product_id, accion, old_price, new_price, insert_date, updated_by
         )
         VALUES (
-            NEW.id, 
+            NEW.product_id, 
             'UPDATE', 
             OLD.price, -- Precio anterior
             NEW.price, -- Nuevo precio
@@ -323,23 +375,31 @@ BEGIN
             USER() -- Usuario que realizó la actualización
         );
     END IF;
-END;
+END //
+DELIMITER ;
+
+-- REALIZAMOS UNA PRUEBA
+-- SELECT * FROM products WHERE product_id = 1 ;
+-- UPDATE products SET price = 120 WHERE product_id = 1;
+-- SELECT * FROM audit_products;
+
 
 
 -- Trigger para auditar cuando el stock de un producto caiga por debajo de 5.
 
 
 -- Primero tenemos que definir la nueva estructura de la tabla de auditoría de stock.
+
 CREATE TABLE low_stock_audit (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    audit_id INT PRIMARY KEY AUTO_INCREMENT,
     product_id INT,  -- ID del producto
     current_stock INT, -- Stock actual del producto
     audit_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Fecha de la auditoría
-    action VARCHAR(50), o de acción (e.g., 'LOW STOCK')
+    action VARCHAR(50), -- o de acción (e.g., 'LOW STOCK')
     recorded_by VARCHAR(100) -- Usuario que realizó la acción
 );
 
-
+DELIMITER //
 CREATE TRIGGER after_update_product_stock
 AFTER UPDATE ON products
 FOR EACH ROW
@@ -350,15 +410,12 @@ BEGIN
             product_id, current_stock, audit_date, action, recorded_by
         )
         VALUES (
-            NEW.id, 
+            NEW.product_id, 
             NEW.stock, -- Stock actual
             CURRENT_TIMESTAMP, 
             'LOW STOCK', 
             USER() -- Usuario que realizó la actualización
         );
     END IF;
-END;
-
--- ARREGLAR LOS NAMES DE LAS COLUMNAS DE TODAS LAS TABLAS DE AUDITORIA
-
-
+END //
+DELIMITER ;
